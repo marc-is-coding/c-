@@ -33,7 +33,7 @@ robot: $(objects)
 clean:
 	rm -f carrental *.o
 
-
+# BELOW THIS LINE; INFORMATION
 
 #\ my make file looks like below. see that I make minimal changes to it in any project environment.
 # source files
