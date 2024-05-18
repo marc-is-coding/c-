@@ -11,7 +11,7 @@ objects = $(patsubst %.cpp,%.o,$(files))
 # g++
 CPPFLAG = g++
 # C++ version to compile to
-CVFLAG = -std=c++23
+CVFLAG = -std=c++2a
 # error handling flags
 CEFLAG = -Wall -Werror
 
