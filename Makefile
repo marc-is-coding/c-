@@ -48,7 +48,7 @@ objects = $(patsubst %.cpp,%.o,$(files))
 
 
 # executable file
-BIN = factory     # <- ### ATENTION !!!!!!!! this is the only thing that I change, I can make it the name of the program like carrental , robot, zoo ..etc
+BIN = factory     \# <- ### ATENTION !!!!!!!! this is the only thing that I change, I can make it the name of the program like carrental , robot, zoo ..etc
 
 
 
