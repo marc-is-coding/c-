@@ -6,10 +6,10 @@
 #include <iostream>
 
 // ##### Car ####
-
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 Car::Car() {
 }
-
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 Car::~Car() {
 }
 
@@ -23,11 +23,29 @@ int Car::getPassengerCount() {
     return this->maxPassengerCount;
 }
 
-// ##### VW ####
-
-VW::VW() {
+// This was not here !!! important
+// either define it like this or set it to = 0 -> so it is pure Abstract
+bool Car::checkCar() {
+    return true;
 }
 
+// these are setter implementations for license and passengers
+void Car::setPassengerCount(int capacity) {
+
+    this->maxPassengerCount = capacity;
+}
+
+void Car::setLicence(int license) {
+    this->requiredLicense = license;
+}
+
+// ##### VW ####
+VW::VW() {
+    // we set the passenger count and license this way here in the constructor
+    this->setPassengerCount(8);
+    this->setLicence(2);
+}
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 VW::~VW() {
 }
 
@@ -43,10 +61,13 @@ bool VW::checkCar() {
 }
 
 // ##### Ford ####
-
 Ford::Ford() {
-}
 
+    // we set the passenger count and license this way here in the constructor
+    this->setPassengerCount(4);
+    this->setLicence(1);
+}
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 Ford::~Ford() {
 }
 
@@ -65,9 +86,15 @@ bool Ford::checkCar() {
 
 // ##### Ferrari ####
 
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 Ferrari::Ferrari() {
+
+    // we set the passenger count and license this way here in the constructor
+    this->setPassengerCount(1);
+    this->setLicence(3);
 }
 
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 Ferrari::~Ferrari() {
 }
 
@@ -76,10 +103,13 @@ bool Ferrari::checkCar() {
 }
 
 // ##### Kleinbus ####
-
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 Kleinbus::Kleinbus() {
+    // we set the passenger count and license this way here in the constructor
+    this->setPassengerCount(20);
+    this->setLicence(3);
 }
-
+// no need for this (because it will be automatically generated anyway) but it also isn't an error
 Kleinbus::~Kleinbus() {
 }
 

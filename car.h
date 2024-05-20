@@ -6,14 +6,19 @@
 
 
 class Car {
-private:
+private: // because these variables are private, we have to add getter and setter for them
+    // but for the sake of Kapselung we have to make the setters protected: (another option is make these protected)
     int maxPassengerCount = 0;
     int requiredLicense = 0;
-    bool drivingAbility = false;
+    //bool drivingAbility = false; // this variable is not needed because we get it from checkCar()
+protected:
+    void setPassengerCount(int capacity);
+    void setLicence(int license);
 public:
     Car();
     ~Car();
 
+    // Hi @mark- > Did you forget to implement this? or is this somthing that was changed later
     virtual bool checkCar();
     int getRequiredDrivingLicence();
     int getPassengerCount();
@@ -22,9 +27,10 @@ public:
 //VW Bus
 class VW : public Car {
 private:
-    int maxPassengerCount = 8;
-    int requiredLicense = 2;
-    bool drivingAbility = true;
+    // TODO(these are all useless here  because there is no way to access them anywhere in this environment)
+    // int maxPassengerCount = 8;
+    // int requiredLicense = 2;
+    // bool drivingAbility = true;
 public:
     VW();
     ~VW();
@@ -43,9 +49,10 @@ Hat eine 15% Wahrscheinlichkeit eine EmissionsTooDirtyException zu werfen.
 
 class Ford : public Car {
 private:
-    int maxPassengerCount = 4;
-    int requiredLicense = 1;
-    bool drivingAbility = true;
+    // TODO(these are all useless here  because there is no way to access them anywhere in this environment)
+    // int maxPassengerCount = 4;
+    // int requiredLicense = 1;
+    // bool drivingAbility = true;
 public:
     Ford();
     ~Ford();
@@ -62,9 +69,10 @@ Ein Ferrari kann nicht kaputt gehen, daher kommt es bei diesem Fahrzeug zu keine
 
 class Ferrari : public Car {
 private:
-    int maxPassengerCount = 1;
-    int requiredLicense = 3;
-    bool drivingAbility = true;
+    // TODO(this are all useless here  because there is no way to access them anywhere in this environment)
+    // int maxPassengerCount = 1;
+    // int requiredLicense = 3;
+    // bool drivingAbility = true;
 public:
     Ferrari();
     ~Ferrari();
@@ -83,9 +91,10 @@ Hat eine 5% Wahrscheinlichkeit eine EmissionsTooDirtyException zu werfen.
 
 class Kleinbus : public Car {
 private:
-    int maxPassengerCount = 20;
-    int requiredLicense = 4;
-    bool drivingAbility = true;
+    // TODO(this are all useless here  because there is no way to access them anywhere in this environment)
+    // int maxPassengerCount = 20;
+    // int requiredLicense = 4;
+    // bool drivingAbility = true;
 public:
     Kleinbus();
     ~Kleinbus();

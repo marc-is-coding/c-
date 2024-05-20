@@ -22,7 +22,7 @@ int main() {
     carRental.addCar(&kleinbus);
     carRental.addCar(&ferrari);
 
-    carRental.simulate(10);
+    carRental.simulate(20);
 
     return 0;
 }

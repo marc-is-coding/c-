@@ -13,7 +13,7 @@ wird für deren Verwaltung ein dynamischer Datencontainer benötigt.
 Bestimmen Sie selbstständig einen passenden Datencontainer. 
 Autos werden durch eindeutige nummerische IDs identifiziert.
 */
-
+class Car;
 class CarRental { 
 private:
     std::map<int, Car*> cars;
