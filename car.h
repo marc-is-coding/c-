@@ -20,8 +20,8 @@ public:
 
     // Hi @mark- > Did you forget to implement this? or is this somthing that was changed later
     virtual bool checkCar();
-    int getRequiredDrivingLicence();
-    int getPassengerCount();
+    int getRequiredDrivingLicence() const;
+    int getPassengerCount() const;
 };
 
 //VW Bus

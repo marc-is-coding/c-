@@ -2,6 +2,7 @@
 #include <iostream>
 #include "exceptions.h"
 #include "car.h"
+# include <random>
 #include <map>
 // for sleeping
 # include <unistd.h>
@@ -59,7 +60,7 @@ Das Auto darf auch nicht schon an andere vermietet und muss fahrtüchtig sein.
 Die Fahrtüchtigkeit wird mit der checkCar()-Objektfunktion überprüft. 
 Falls kein passendes Fahrzeug gefunden werden konnte, soll eine NoCarFoundException geworfen werden.
 */
-Car *CarRental::rentCar(int licenceType, int passengerCount)
+/* Car *CarRental::rentCar(int licenceType, int passengerCount)
 {
     for (auto &car : cars)
     {
@@ -78,17 +79,10 @@ Car *CarRental::rentCar(int licenceType, int passengerCount)
                     return car.second;
                 }
             }
-            catch (BrokenMotorException &e)
+            // let's pass this exception up to stack
+            catch (CarRentalException &e)
             {
-                std::cout << e.what() << std::endl;
-            }
-            catch (ElectronicsFaultException &e)
-            {
-                std::cout << e.what() << std::endl;
-            }
-            catch (EmissionsTooDirtyException &e)
-            {
-                std::cout << e.what() << std::endl;
+                throw e;
             }
         }
         else {
@@ -96,6 +90,32 @@ Car *CarRental::rentCar(int licenceType, int passengerCount)
         }
     }
     return nullptr;
+}*/
+
+// remake of the above function. because it was checking only one car per order
+Car *CarRental::rentCar(int licenceType, int passengerCount)
+{
+    try{
+        for(const auto & car: this->cars){
+            // to make things simpler, lets assign a name to car
+            auto c = car.second;
+            // first lets check if it works
+            c->checkCar();
+            // then lets try to rent it
+            if(c->getPassengerCount() <= passengerCount // can it hold the passengers?
+               && c->getRequiredDrivingLicence() <= licenceType){ // can it be driven with the licence?
+
+                return c;
+
+            }
+
+        }
+    }catch(CarRentalException& e){
+        throw e;
+    }
+    // If no exception is thrown and nothing is returned
+    // we throw a not found exception
+    throw NoCarFoundException();
 }
 
 /*
@@ -108,9 +128,10 @@ void CarRental::simulate(int rentals) {
     {
         // sleep here for one second
         sleep(1);
-        int licenceType = rand() % 5 + 1; // 
-        int passengerCount = rand() % 21 + 1; //
-
+        // also , you used rand()  here, we use random() by including <random>
+        int licenceType = ((int)random() % 5) + 1; //
+        int passengerCount = ((int)random() % 10) + 1; //
+        //std::cout << "Passenger count, licence  = " << passengerCount << ", "<< licenceType <<std::endl;
         // You are throwing an exception in the function rentCar(), and thus. you have to catch that exception
         // using try - catch
         // rentCar(licenceType, passengerCount); - this was your code -

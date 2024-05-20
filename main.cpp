@@ -17,10 +17,12 @@ int main() {
     Kleinbus kleinbus;
     Ferrari ferrari;
 
-    carRental.addCar(&vw);
-    carRental.addCar(&ford);
     carRental.addCar(&kleinbus);
     carRental.addCar(&ferrari);
+    // rearranged the cars too just to make result reasonable
+    // cars above were last.
+    carRental.addCar(&vw);
+    carRental.addCar(&ford);
 
     carRental.simulate(20);
 
