@@ -130,13 +130,13 @@ void CarRental::simulate(int rentals) {
         sleep(1);
         // also , you used rand()  here, we use random() by including <random>
         int licenceType = ((int)random() % 5) + 1; //
-        int passengerCount = ((int)random() % 10) + 1; //
-        //std::cout << "Passenger count, licence  = " << passengerCount << ", "<< licenceType <<std::endl;
-        // You are throwing an exception in the function rentCar(), and thus. you have to catch that exception
-        // using try - catch
-        // rentCar(licenceType, passengerCount); - this was your code -
+        int passengerCount = ((int)random() % 10) + 1;
 
-        // I would do it like below. -- AND I got results
+        // You are throwing an exception in the function rentCar(), and thus.
+        // you have to catch that exception using try - catch
+        // rentCar(licenceType, passengerCount); -- YOUR CODE -- this was throwing exception that was not being caught
+
+        // I would do it like below. -- AND the change was immediate. I got results
         try{
             // here we have to do something with the car that we got
             auto car = this->rentCar(licenceType,passengerCount);
