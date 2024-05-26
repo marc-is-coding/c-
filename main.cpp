@@ -17,6 +17,7 @@ int main() {
     Kleinbus kleinbus;
     Ferrari ferrari;
 
+
     carRental.addCar(&kleinbus);
     carRental.addCar(&ferrari);
     // rearranged the cars too just to make result reasonable
